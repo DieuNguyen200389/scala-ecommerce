@@ -1,0 +1,35 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Authn & Authz Endpoints
+GET         /unsecured                         controllers.auth.UnsecuredResourceController.index
+
+POST        /signUp                            controllers.auth.AuthController.signUp
+
+POST        /signIn                            controllers.auth.AuthController.signIn
+
+# Routing to external posts endpoints
+GET          /v1/external/products             controllers.product.ProductController.getAllExternal
+
+# User Endpoints mapped one-by-one
+GET        /v1/users                           controllers.user.UserController.getAll
+GET        /v1/users/:id                       controllers.user.UserController.getById(id: Long)
+PUT        /v1/users/:id                       controllers.user.UserController.update(id: Long)
+DELETE     /v1/users/:id                       controllers.user.UserController.delete(id: Long)
+POST        /v1/password/change                controllers.auth.ChangePasswordController.changePassword
+
+# Product Endpoints mapped one-by-one
+GET        /v1/products                        controllers.product.ProductController.getAll
+GET        /v1/products/:id                    controllers.product.ProductController.getById(id: Long)
+POST       /v1/products                        controllers.product.ProductController.create
+PUT        /v1/products/:id                    controllers.product.ProductController.update(id: Long)
+DELETE     /v1/products/:id                    controllers.product.ProductController.delete(id: Long)
+
+# Order Endpoints mapped one-by-one
+GET        /v1/orders                          controllers.order.OrderController.getAll
+GET        /v1/orders/:id                      controllers.order.OrderController.getById(id: Long)
+POST       /v1/orders                          controllers.order.OrderController.create
+PUT        /v1/orders/:id                      controllers.order.OrderController.update(id: Long)
+DELETE     /v1/orders/:id                      controllers.order.OrderController.delete(id: Long)
+
